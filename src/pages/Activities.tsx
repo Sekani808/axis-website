@@ -12,7 +12,7 @@ import ActivityCard from '../components/ActivityCard';
 import { activities } from '../data/activities';
 
 // Import social icons (Lucide React for consistency)
-import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
+import { Linkedin, Instagram, Facebook } from 'lucide-react';
 
 export default function Activities() {
   return (

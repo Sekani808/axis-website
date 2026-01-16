@@ -1,25 +1,24 @@
-// ProgramCard.tsx (FIXED)
-
+// src/components/ProgramCard.tsx
 import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
 
-// Define allowed icon names explicitly for better safety
-type LucideIconName = keyof typeof LucideIcons;
+// Define allowed icon names (only those you use)
+type ValidIconName = 'Brain' | 'BarChart3' | 'Wifi' | 'Globe';
 
 interface ProgramCardProps {
   program: {
     id: number;
     title: string;
     description: string;
-    icon: LucideIconName; // 👈 Now strongly typed!
-    color: 'axis-blue' | 'axis-green'; // Also restrict color values
+    icon: ValidIconName; // 👈 Restrict to known icons
+    color: 'axis-blue' | 'axis-green';
     features: string[];
   };
 }
 
 export default function ProgramCard({ program }: ProgramCardProps) {
-  // Safely get the icon component
-  const IconComponent = LucideIcons[program.icon];
+  // Safe cast — we know it's valid due to type restriction
+  const IconComponent = LucideIcons[program.icon] as React.ComponentType<{ size?: number }>;
 
   return (
     <motion.div
@@ -36,7 +35,6 @@ export default function ProgramCard({ program }: ProgramCardProps) {
         }`}
         aria-hidden="true"
       >
-        {/* ✅ Now TypeScript knows this is a valid component */}
         <IconComponent size={32} />
       </div>
 

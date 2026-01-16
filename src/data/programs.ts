@@ -2,8 +2,8 @@ export interface Program {
   id: number;
   title: string;
   description: string;
-  icon: string;
-  color: string;
+  icon: 'Brain' | 'BarChart3' | 'Wifi' | 'Globe';
+  color: 'axis-blue' | 'axis-green';
   features: string[];
 }
 

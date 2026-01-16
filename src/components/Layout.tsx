@@ -1,3 +1,7 @@
+// Layout.tsx
+// Purpose: Main layout with responsive navigation, dark mode toggle, and footer
+// Now includes logo in header
+
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Moon, Sun, Menu, X } from 'lucide-react';
@@ -31,8 +35,14 @@ export default function Layout({ children }: LayoutProps) {
       <header className="bg-white dark:bg-axis-dark shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link to="/" className="text-2xl font-bold text-axis-blue">
-              AXIS
+            {/* 🔸 LOGO REPLACES TEXT "AXIS" */}
+            <Link to="/" aria-label="Go to AXIS homepage">
+              <img
+                src="/images/add-images/logo.png" 
+                alt="AXIS - Advanced Xeleration for Industrial Systems"
+                className="h-8 w-auto" // Adjust height as needed (h-8 = 32px)
+                loading="eager"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -54,7 +64,7 @@ export default function Layout({ children }: LayoutProps) {
               <button
                 onClick={toggleDarkMode}
                 className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                aria-label="Toggle dark mode"
+                aria-label={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
               >
                 {darkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
@@ -63,7 +73,7 @@ export default function Layout({ children }: LayoutProps) {
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                aria-label="Toggle mobile menu"
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
@@ -129,14 +139,14 @@ export default function Layout({ children }: LayoutProps) {
                 <a href="#" className="text-gray-300 hover:text-axis-blue transition-colors">
                   GitHub
                 </a>
-                <a href="#" className="text-gray-300 hover:text-axis-blue transition-colors">
+                <a href="advaxeleis@gmail.com" className="text-gray-300 hover:text-axis-blue transition-colors">
                   Email
                 </a>
               </div>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 AXIS. All rights reserved.</p>
+            <p>&copy; 2026 AXIS. All rights reserved.</p>
           </div>
         </div>
       </footer>

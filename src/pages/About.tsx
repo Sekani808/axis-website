@@ -1,17 +1,38 @@
+// About.tsx
+// Purpose: Detailed overview of AXIS — mission, values, team composition, and history
+// Design:
+// - Gradient hero header
+// - Two-column layout for Mission + Values
+// - Team stats grid (disciplines & counts)
+// - Timeline-style "Journey" section
+// Note: No backend dependencies — all content is hardcoded or from static data
+
 import { motion } from 'framer-motion';
 import { GraduationCap, Users, Target, Award } from 'lucide-react';
 
 export default function About() {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-axis-blue to-axis-green text-white py-20">
+      {/* ─────────────────────────────────────── */}
+      {/* HERO SECTION: Bold gradient header with title */}
+      {/* 🔸 OPTIONAL: Replace gradient with background image from /public/images/background/ */}
+      {/* Example: If you have `public/images/background/about-hero.jpg`, uncomment the style block below */}
+      {/* ─────────────────────────────────────── */}
+      <section 
+        className="text-white py-20 relative"
+          style={{
+            backgroundImage: `url(/images/background_photos/hero2.png)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-6"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            aria-label="About AXIS"
           >
             About AXIS
           </motion.h1>
@@ -21,20 +42,25 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Advanced Xeleration for Industrial Systems - Youth-led innovation from Malawi
+            Advanced Xeleration for Industrial Systems - Where Ideas Meet Momentum
           </motion.p>
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* ─────────────────────────────────────── */}
+      {/* MISSION & VALUES SECTION */}
+      {/* Left: Mission statement */}
+      {/* Right: Core values as icon-list (responsive on mobile) */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Mission Text */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ once: true }} // Only animate once when scrolled into view
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
                 Our Mission
@@ -51,6 +77,7 @@ export default function About() {
               </p>
             </motion.div>
 
+            {/* Values Card */}
             <motion.div
               className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg"
               initial={{ opacity: 0, x: 50 }}
@@ -82,7 +109,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Composition */}
+      {/* ─────────────────────────────────────── */}
+      {/* TEAM COMPOSITION: Discipline breakdown */}
+      {/* Shows count per field (ChemE, BiomedE, etc.) */}
+      {/* Responsive grid with hover animations */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -100,6 +131,7 @@ export default function About() {
             </p>
           </motion.div>
 
+          {/* Grid of discipline stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <motion.div
               className="text-center p-6 bg-white dark:bg-gray-700 rounded-lg"
@@ -137,6 +169,7 @@ export default function About() {
               <div className="text-gray-600 dark:text-gray-300">Microbiologist</div>
             </motion.div>
 
+            {/* Centered Cyber Security card on medium+ screens */}
             <motion.div
               className="text-center p-6 bg-white dark:bg-gray-700 rounded-lg md:col-start-2"
               whileHover={{ scale: 1.05 }}
@@ -149,7 +182,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* History & Achievements */}
+      {/* ─────────────────────────────────────── */}
+      {/* HISTORY & ACHIEVEMENTS: Timeline narrative */}
+      {/* Left: Founding story */}
+      {/* Right: Bullet-point achievements */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -168,16 +205,17 @@ export default function About() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Founding Story */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Founded in 2023</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Founded in March 2025</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                AXIS was established by forward-thinking students at Malawi University of Science and Technology
-                who recognized the potential of combining diverse engineering disciplines with technology to address
+                AXIS was established by forward-thinking students at the Malawi University of Science and Technology
+                who recognized the potential of combining diverse STEM disciplines with technology to address
                 Malawi's unique challenges.
               </p>
               <p className="text-gray-600 dark:text-gray-300">
@@ -186,6 +224,7 @@ export default function About() {
               </p>
             </motion.div>
 
+            {/* Key Achievements */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -196,19 +235,19 @@ export default function About() {
               <ul className="space-y-3 text-gray-600 dark:text-gray-300">
                 <li className="flex items-start gap-3">
                   <span className="w-2 h-2 bg-axis-blue rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Developed PuriMadzi water purification system</span>
+                  <span>Participated in the MUST Design Competition</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-2 h-2 bg-axis-green rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Created Clinic Flow AI-powered healthcare management</span>
+                  <span>Created Clinic Flow, an AI-powered healthcare management system</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-2 h-2 bg-axis-blue rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Participated in national innovation competitions</span>
+                  <span>Participated in the National Youth Summit</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-2 h-2 bg-axis-green rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Collaborated with industry partners and NGOs</span>
+                  <span>Won the Community Prize at the Hello World Hackathon</span>
                 </li>
               </ul>
             </motion.div>

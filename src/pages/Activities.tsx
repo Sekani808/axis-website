@@ -1,13 +1,38 @@
+// Activities.tsx
+// Purpose: Showcase past, present, and upcoming AXIS events and engagements
+// Features:
+// - Hero section (supports background image from /public/images/background/)
+// - Grid of activity cards (from static data)
+// - Activity categories (Hackathons, Workshops, etc.)
+// - Upcoming events placeholder with social links
+// - CTA to contact for collaboration
+
 import { motion } from 'framer-motion';
 import ActivityCard from '../components/ActivityCard';
 import { activities } from '../data/activities';
 
+// Import social icons (Lucide React for consistency)
+import { Linkedin, Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
+
 export default function Activities() {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-axis-blue to-axis-green text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ─────────────────────────────────────── */}
+      {/* HERO SECTION: Background image + overlay */}
+      {/* 🔸 Replaced solid gradient with real background image */}
+      {/* Ensure: public/images/background/activities-bg.jpg exists */}
+      {/* ─────────────────────────────────────── */}
+      <section 
+        className="text-white py-20 relative"
+        style={{
+          backgroundImage: `url(/images/add-images/hello-world2.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-6"
             initial={{ opacity: 0, y: 50 }}
@@ -27,7 +52,10 @@ export default function Activities() {
         </div>
       </section>
 
-      {/* Activities Grid */}
+      {/* ─────────────────────────────────────── */}
+      {/* ACTIVITIES GRID: Display all activities from static data */}
+      {/* Each card is animated as it enters viewport */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -62,7 +90,10 @@ export default function Activities() {
         </div>
       </section>
 
-      {/* Activity Types */}
+      {/* ─────────────────────────────────────── */}
+      {/* ACTIVITY TYPES: Explain categories of engagement */}
+      {/* Uses emoji placeholders — can be replaced with icons if needed */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -87,7 +118,7 @@ export default function Activities() {
               transition={{ duration: 0.2 }}
             >
               <div className="w-16 h-16 bg-axis-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🏆</span>
+                <span className="text-3xl">🏆</span> {/* Could replace with Trophy icon */}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Hackathons</h3>
               <p className="text-gray-600 dark:text-gray-300">
@@ -102,7 +133,7 @@ export default function Activities() {
               transition={{ duration: 0.2 }}
             >
               <div className="w-16 h-16 bg-axis-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">📚</span>
+                <span className="text-3xl">📚</span> {/* Could use BookOpen or GraduationCap */}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Workshops</h3>
               <p className="text-gray-600 dark:text-gray-300">
@@ -117,7 +148,7 @@ export default function Activities() {
               transition={{ duration: 0.2 }}
             >
               <div className="w-16 h-16 bg-axis-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🏭</span>
+                <span className="text-3xl">🏭</span> {/* Could use Building or Factory icon */}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Industry Visits</h3>
               <p className="text-gray-600 dark:text-gray-300">
@@ -129,7 +160,11 @@ export default function Activities() {
         </div>
       </section>
 
-      {/* Upcoming Activities */}
+      {/* ─────────────────────────────────────── */}
+      {/* UPCOMING ACTIVITIES: Placeholder with real social icons */}
+      {/* 🔸 Replaced plain text links with actual icons */}
+      {/* 🔸 Links are placeholders — update hrefs with your real URLs */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -157,26 +192,28 @@ export default function Activities() {
                   We're planning exciting hackathons, workshops, and collaborations.
                   Follow us on social media or check back regularly for updates.
                 </p>
-                <div className="flex justify-center gap-4">
+                <div className="flex justify-center gap-6">
+                  {/* 🔗 Replace # with your actual social URLs */}
                   <a
                     href="#"
-                    className="text-axis-blue hover:text-axis-blue/80 font-semibold transition-colors"
+                    aria-label="Follow us on LinkedIn"
+                    className="text-axis-blue hover:text-axis-blue/80 transition-colors"
                   >
-                    LinkedIn
+                    <Linkedin size={24} />
                   </a>
-                  <span className="text-gray-400">|</span>
                   <a
-                    href="#"
-                    className="text-axis-blue hover:text-axis-blue/80 font-semibold transition-colors"
+                    href="https://www.instagram.com/axis03650?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    aria-label="Follow us on Instagram"
+                    className="text-axis-blue hover:text-axis-blue/80 transition-colors"
                   >
-                    Twitter
+                    <Instagram size={24} />
                   </a>
-                  <span className="text-gray-400">|</span>
                   <a
-                    href="#"
-                    className="text-axis-blue hover:text-axis-blue/80 font-semibold transition-colors"
+                    href="https://web.facebook.com/share/p/1bYA3r912b/"
+                    aria-label="Like us on Facebook"
+                    className="text-axis-blue hover:text-axis-blue/80 transition-colors"
                   >
-                    Facebook
+                    <Facebook size={24} />
                   </a>
                 </div>
               </div>
@@ -185,7 +222,10 @@ export default function Activities() {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* ─────────────────────────────────────── */}
+      {/* CALL TO ACTION: Link to Contact page (not anchor) */}
+      {/* 🔸 Changed href from "#contact" to "/contact" */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16 bg-gradient-to-r from-axis-blue to-axis-green text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.h2
@@ -213,8 +253,9 @@ export default function Activities() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
+            {/* 🔗 Navigate to Contact page */}
             <a
-              href="#contact"
+              href="/contact"
               className="bg-white text-axis-blue font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors inline-block"
             >
               Get In Touch

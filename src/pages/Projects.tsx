@@ -1,3 +1,11 @@
+// Projects.tsx
+// Purpose: Showcase all AXIS innovation projects in a gallery format
+// Features:
+// - Hero section with background image (from /public/images/background/)
+// - Grid of project cards (from static data)
+// - Impact areas (Water, Healthcare, etc.) with visual icons
+// - CTA to contact for collaboration
+
 import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data/projects';
@@ -5,9 +13,22 @@ import { projects } from '../data/projects';
 export default function Projects() {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-axis-blue to-axis-green text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ─────────────────────────────────────── */}
+      {/* HERO SECTION: Background image + overlay */}
+      {/* 🔸 Replaced solid gradient with real background image */}
+      {/* Ensure: public/images/background/projects-bg.jpg exists */}
+      {/* ─────────────────────────────────────── */}
+      <section 
+        className="text-white py-20 relative"
+        style={{
+          backgroundImage: `url(/images/background_photos/projects.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-6"
             initial={{ opacity: 0, y: 50 }}
@@ -27,7 +48,10 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Projects Grid */}
+      {/* ─────────────────────────────────────── */}
+      {/* PROJECTS GRID: Display all projects from static data */}
+      {/* Each card animates as it enters the viewport */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -62,7 +86,10 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Project Categories */}
+      {/* ─────────────────────────────────────── */}
+      {/* IMPACT AREAS: Visual breakdown of project domains */}
+      {/* Uses emojis as lightweight icons (can be replaced with Lucide if preferred) */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -87,7 +114,7 @@ export default function Projects() {
               transition={{ duration: 0.2 }}
             >
               <div className="w-12 h-12 bg-axis-blue/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💧</span>
+                <span className="text-2xl">💧</span> {/* Water drop emoji */}
               </div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Water & Sanitation</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -101,7 +128,7 @@ export default function Projects() {
               transition={{ duration: 0.2 }}
             >
               <div className="w-12 h-12 bg-axis-green/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏥</span>
+                <span className="text-2xl">🏥</span> {/* Hospital emoji */}
               </div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Healthcare</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -115,7 +142,7 @@ export default function Projects() {
               transition={{ duration: 0.2 }}
             >
               <div className="w-12 h-12 bg-axis-blue/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🌾</span>
+                <span className="text-2xl">🌾</span> {/* Sheaf of rice emoji */}
               </div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Agriculture</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -129,7 +156,7 @@ export default function Projects() {
               transition={{ duration: 0.2 }}
             >
               <div className="w-12 h-12 bg-axis-green/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🤖</span>
+                <span className="text-2xl">🤖</span> {/* Robot emoji */}
               </div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">AI & Technology</h3>
               <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -140,7 +167,10 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* ─────────────────────────────────────── */}
+      {/* CALL TO ACTION: Link to Contact page */}
+      {/* 🔸 Changed href from "#contact" to "/contact" for proper routing */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16 bg-gradient-to-r from-axis-blue to-axis-green text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.h2
@@ -168,8 +198,9 @@ export default function Projects() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
+            {/* 🔗 Navigate to Contact page instead of anchor */}
             <a
-              href="#contact"
+              href="/contact"
               className="bg-white text-axis-blue font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors inline-block"
             >
               Start a Conversation

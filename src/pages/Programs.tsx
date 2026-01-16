@@ -1,3 +1,11 @@
+// Programs.tsx
+// Purpose: Showcase AXIS's four specialized innovation tracks
+// Features:
+// - Hero section with background image (from /public/images/background/)
+// - Grid of program cards (from static data)
+// - "How We Work" process explanation (3-step workflow)
+// - CTA to join a program
+
 import { motion } from 'framer-motion';
 import ProgramCard from '../components/ProgramCard';
 import { programs } from '../data/programs';
@@ -5,9 +13,22 @@ import { programs } from '../data/programs';
 export default function Programs() {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-axis-blue to-axis-green text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ─────────────────────────────────────── */}
+      {/* HERO SECTION: Background image + overlay */}
+      {/* 🔸 Replaced solid gradient with real background image */}
+      {/* Ensure: public/images/background/programs-bg.jpg exists */}
+      {/* ─────────────────────────────────────── */}
+      <section 
+        className="text-white py-20 relative"
+        style={{
+          backgroundImage: `url(/images/background_photos/programs.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-6"
             initial={{ opacity: 0, y: 50 }}
@@ -27,7 +48,10 @@ export default function Programs() {
         </div>
       </section>
 
-      {/* Programs Grid */}
+      {/* ─────────────────────────────────────── */}
+      {/* PROGRAMS GRID: Display all four tracks */}
+      {/* Each card animates as it enters the viewport */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -62,7 +86,10 @@ export default function Programs() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* ─────────────────────────────────────── */}
+      {/* HOW WE WORK: 3-step innovation process */}
+      {/* Visual numbered steps with icons */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -81,6 +108,7 @@ export default function Programs() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Step 1: Identify */}
             <motion.div
               className="text-center p-6"
               initial={{ opacity: 0, y: 50 }}
@@ -97,6 +125,7 @@ export default function Programs() {
               </p>
             </motion.div>
 
+            {/* Step 2: Collaborate */}
             <motion.div
               className="text-center p-6"
               initial={{ opacity: 0, y: 50 }}
@@ -113,6 +142,7 @@ export default function Programs() {
               </p>
             </motion.div>
 
+            {/* Step 3: Innovate */}
             <motion.div
               className="text-center p-6"
               initial={{ opacity: 0, y: 50 }}
@@ -132,7 +162,10 @@ export default function Programs() {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* ─────────────────────────────────────── */}
+      {/* CALL TO ACTION: Link to Contact page */}
+      {/* 🔸 Changed href from "#contact" to "/contact" for proper routing */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16 bg-gradient-to-r from-axis-blue to-axis-green text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.h2
@@ -160,8 +193,9 @@ export default function Programs() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
+            {/* 🔗 Navigate to Contact page instead of anchor */}
             <a
-              href="#contact"
+              href="/contact"
               className="bg-white text-axis-blue font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors inline-block"
             >
               Get Involved

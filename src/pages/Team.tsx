@@ -1,16 +1,38 @@
+// Team.tsx
+// Purpose: Showcase all AXIS team members, split into PMO (leadership) and general members
+// Features:
+// - Hero section with background image (from /public/images/background/)
+// - Two-team layout: PMO + Members
+// - "By the Numbers" stats section
+// - CTA to join the team
+
 import { motion } from 'framer-motion';
 import TeamMember from '../components/TeamMember';
 import { team } from '../data/team';
 
 export default function Team() {
+  // Split team into leadership (PMO) and general members
   const pmoTeam = team.filter(member => member.isPMO);
   const otherMembers = team.filter(member => !member.isPMO);
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-axis-blue to-axis-green text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ─────────────────────────────────────── */}
+      {/* HERO SECTION: Background image + overlay */}
+      {/* 🔸 Replaced solid gradient with real background image */}
+      {/* Ensure: public/images/background/team-bg.jpg exists */}
+      {/* ─────────────────────────────────────── */}
+      <section 
+        className="text-white py-20 relative"
+        style={{
+          backgroundImage: `url(/images/background_photos/hero3.png)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-6"
             initial={{ opacity: 0, y: 50 }}
@@ -30,7 +52,10 @@ export default function Team() {
         </div>
       </section>
 
-      {/* PMO Team Section */}
+      {/* ─────────────────────────────────────── */}
+      {/* PMO TEAM SECTION: Leadership members */}
+      {/* Animated grid of PMO profiles */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -64,7 +89,10 @@ export default function Team() {
         </div>
       </section>
 
-      {/* Team Members Section */}
+      {/* ─────────────────────────────────────── */}
+      {/* GENERAL TEAM MEMBERS SECTION */}
+      {/* Displays non-PMO members in responsive grid */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -99,7 +127,10 @@ export default function Team() {
         </div>
       </section>
 
-      {/* Team Stats */}
+      {/* ─────────────────────────────────────── */}
+      {/* TEAM STATS: Key metrics in 4-column grid */}
+      {/* Hover animation on each stat card */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -157,7 +188,10 @@ export default function Team() {
         </div>
       </section>
 
-      {/* Join Us CTA */}
+      {/* ─────────────────────────────────────── */}
+      {/* CALL TO ACTION: Link to Contact page */}
+      {/* 🔸 Changed href from "#contact" to "/contact" for proper routing */}
+      {/* ─────────────────────────────────────── */}
       <section className="py-16 bg-gradient-to-r from-axis-blue to-axis-green text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.h2
@@ -186,8 +220,9 @@ export default function Team() {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
+            {/* 🔗 Navigate to Contact page instead of anchor */}
             <a
-              href="#contact"
+              href="/contact"
               className="bg-white text-axis-blue font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors inline-block"
             >
               Get In Touch

@@ -115,7 +115,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h3>
                     <a
-                      href="mailto:info@axis-malawi.org"
+                      href="mailto:advaxeleis@gmail.com"
                       className="text-gray-600 dark:text-gray-300 hover:text-axis-blue transition-colors"
                     >
                       advaxeleis@gmail.com
@@ -176,7 +176,7 @@ export default function Contact() {
                     <Facebook size={18} />
                   </a>
                   <a
-                    href="#"
+                    href="https://youtube.com/@advancedxelerationforindustria?si=Emjl8AgKBlfPzTZA"
                     className="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-[#FF0000] hover:text-white transition-colors"
                     aria-label="Visit our YouTube channel"
                   >

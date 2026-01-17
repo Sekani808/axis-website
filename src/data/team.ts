@@ -29,7 +29,7 @@ export const team: TeamMember[] = [
     role: "Vice President",
     discipline: "Biomedical Engineering",
     bio: "Driving healthcare innovation through engineering solutions.",
-    image: "/images/axis_profile_pictures/Francis.jpeg",
+    image: "/images/axis_profile_pictures/Francis.jpg",
     linkedin: "https://www.linkedin.com/in/francis-chantulo-332836369/",
     github: "https://github.com/Fra7220",
     isPMO: true,
